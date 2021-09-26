@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Deployment Tutorial 1</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body style="background: rgb(199, 194, 194);">
+ <div class="login">
+	<h1>Classifier Model (Iris dataset) </h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="str" name="mes_alta" placeholder="mes_alta" required="required" />
+      <input type="str" name="sop_tit_nacimiento" placeholder="sop_tit_nacimiento" required="required" />
+	    <input type="str" name="sop_tit_estado_civil" placeholder="sop_tit_estado_civil" required="required" />
+      <input type="str" name="sop_tit_regimen" placeholder="sop_tit_regimen" required="required" />
+      <select id="sop_dpf_contrato_fijo" name="Contrato fijo" class="form-control">
+        <option value="N">NO</option>
+        <option value="S">SI</option>
+      </select>	
+      <input type="str" name="sop_dpf_antig_laboral" placeholder="sop_dpf_antig_laboral" required="required" />
+	    <input type="str" name="sop_dpf_tipo_actividad" placeholder="sop_dpf_tipo_actividad" required="required" />
+      <input type="float" name="sop_dpf_ing_netos_anual_prop" placeholder="sop_dpf_ing_netos_anual_prop" required="required" />
+      <input type="float" name="sop_dpf_gastos_mens_alq_hipo" placeholder="sop_dpf_gastos_mens_alq_hipo" required="required" />
+      <input type="str" name="sop_tit_tipo_vivienda" placeholder="sop_tit_tipo_vivienda" required="required" />
+	    <input type="float" name="sop_tit_numero_hijos_cargo" placeholder="sop_tit_numero_hijos_cargo" required="required" />
+      <input type="str" name="sop_dpf_sit_laboral" placeholder="sop_dpf_sit_laboral" required="required" />
+      <input type="float" name="probability_model_CUSEC_xgboost" placeholder="probability_model_CUSEC_xgboost" required="required" />
+      <input type="float" name="deciles_tasacion" placeholder="deciles_tasacion" required="required" />
+      <input type="float" name="renta_media_hogar_2017" placeholder="renta_media_hogar_2017" required="required" />
+	    <input type="float" name="renta_media_persona_2017" placeholder="renta_media_persona_2017" required="required" />
+      <input type="float" name="salario_mediano_clientes" placeholder="salario_mediano_clientes" required="required" />
+      <input type="float" name="precio_m2" placeholder="precio_m2" required="required" />
+      <input type="float" name="superficie_construida" placeholder="superficie_construida" required="required" />
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict the probability of default
+        </button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>

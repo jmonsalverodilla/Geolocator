@@ -1,0 +1,5 @@
+MAPQUEST:
+  TOKEN: 'VmPOGxAfWNgQRZysRdIvxECkNrSyyrRf'
+CUSEC:
+  LISTA_CA: ['Comunidad de Madrid']
+  VARIABLES: ['CUSEC','precio_m2','geometry']

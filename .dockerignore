@@ -1,0 +1,8 @@
+# ignore files
+.git
+.gitattributes
+.cache
+.idea
+GDAL_WHEELS
+requirements_real.txt
+obj/df_cusec_geometry.pkl
