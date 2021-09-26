@@ -16,4 +16,3 @@ jobs:
           heroku_app_name: "geolocator-flask-app-docker" #Must be unique in Heroku
           heroku_email: "javiermonsalverodilla@gmail.com" #My Heroku email
           usedocker: true
-          buildpack: "https://github.com/heroku/heroku-geo-buildpack.git"
