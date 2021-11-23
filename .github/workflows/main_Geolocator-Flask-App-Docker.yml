@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: jmr96registry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_55fce255d15b4af595088a1f3079ddc9 }}/geolocator:${{ github.sha }}
+        tags: jmr96registry.azurecr.io/geolocator:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'Geolocator-Flask-App-Docker'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_38c04d2549034cb49ba71dc8caae5fb6 }}
-        images: 'jmr96registry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_55fce255d15b4af595088a1f3079ddc9 }}/geolocator:${{ github.sha }}'
+        images: 'jmr96registry.azurecr.io/geolocator:${{ github.sha }}'
