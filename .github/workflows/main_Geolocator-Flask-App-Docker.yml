@@ -48,4 +48,4 @@ jobs:
         app-name: 'Geolocator-Flask-App-Docker'
         slot-name: 'production'
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_WITH_DOCKER }}
-        images: '${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ secrets.REGISTRY_USERNAME }}/geolocator:${{ github.sha }}'
+        images: '${{ secrets.REGISTRY_LOGIN_SERVER }}/geolocator:${{ github.sha }}'
