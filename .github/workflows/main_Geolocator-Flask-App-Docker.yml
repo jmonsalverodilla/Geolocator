@@ -33,19 +33,19 @@ jobs:
         tags: ${{ secrets.REGISTRY_LOGIN_SERVER }}/geolocator:${{ github.sha }}
         file: ./Dockerfile
 
-#  deploy:
-#    runs-on: ubuntu-latest
-#    needs: build
-#    environment:
-#      name: 'production'
-#      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-#
-#    steps:
-#    - name: Deploy to Azure Web App
-#      id: deploy-to-webapp
-#      uses: azure/webapps-deploy@v2
-#      with:
-#        app-name: 'Geolocator-Flask-App-Docker'
-#        slot-name: 'production'
-#        publish-profile: ${{ secrets.AzureAppService_PublishProfile_7d7efdc5467e4da297791872ea7922cb }}
-#        images: 'jmr96registry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_ca924bd68b19426196f47fb186717107 }}/jmr96registry/geolocator:${{ github.sha }}'
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+    - name: Deploy to Azure Web App
+      id: deploy-to-webapp
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'Geolocator-Flask-App-Docker'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_WITH_DOCKER }}
+        images: '${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ secrets.REGISTRY_USERNAME }}/geolocator:${{ github.sha }}'
