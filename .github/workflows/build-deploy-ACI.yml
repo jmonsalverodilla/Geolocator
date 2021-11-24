@@ -44,6 +44,8 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+        env:
+          credentials: ${{ secrets.AZURE_CREDENTIALS }}
 
       # step 2: Deploy to Azure Container Instances
       - name: 'Deploy to Azure Container Instances'
