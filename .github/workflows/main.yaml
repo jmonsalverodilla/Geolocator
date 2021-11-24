@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy from Dockerfile to Heroku
 
 on:
   push:
